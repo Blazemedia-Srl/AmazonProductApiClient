@@ -1,0 +1,8 @@
+{   
+    "accessKey"           : "<access-key-amazon>",
+    "secretKey"           : "<secret-key-amazon>",
+    "host"                : "webservices.amazon.it",
+    "region"              : "eu-west-1",
+    "partnerTag"          : "<something>-21",
+    "trackingPlaceholder" : "booMYTRAKINGood"
+}

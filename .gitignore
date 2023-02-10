@@ -1,0 +1,3 @@
+vendor/phpunit
+vendor/bin
+amazon_product_api_config.json

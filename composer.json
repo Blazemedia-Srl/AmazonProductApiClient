@@ -1,0 +1,23 @@
+{
+    "name": "blazemedia/amazon-product-api",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Blazemedia\\AmazonProductApi\\": "src/",
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "blazemedia",
+            "email": "techteam@blazemedia.it"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.5",
+        "thewirecutter/paapi5-php-sdk":"*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
