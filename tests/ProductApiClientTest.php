@@ -15,7 +15,9 @@ final class ProductApiClientTest extends TestCase {
 
         parent::setUP();
 
-        $this->client = ProductApiClient::getInstance();
+        $config_file = str_replace('tests','', __DIR__) . 'amazon_product_api_config.json';
+
+        $this->client = new ProductApiClient(  $config_file );
     }
     
 
