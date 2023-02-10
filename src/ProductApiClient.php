@@ -16,8 +16,10 @@ use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResponse;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsResource;
 
+if( !defined('AMAZON_PRODUCT_API_CONFIG_FILE') ) {
+    define( 'AMAZON_PRODUCT_API_CONFIG_FILE', str_replace( 'src', '', __DIR__ ). 'amazon_product_api_config.json');
+}
 
-define( 'AMAZON_PRODUCT_API_CONFIG_FILE', str_replace('src','',__DIR__). 'amazon_product_api_config.json');
 
 
 class ProductApiClient {
