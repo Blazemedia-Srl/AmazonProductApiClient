@@ -26,7 +26,9 @@ class ProductApiClient {
     private $resources = [
         GetItemsResource::ITEM_INFOTITLE,
         GetItemsResource::OFFERSLISTINGSPRICE,            
-        GetItemsResource::PARENT_ASIN
+        GetItemsResource::PARENT_ASIN,
+        GetItemsResource::IMAGESPRIMARYLARGE,        
+        //GetItemsResource::IMAGESVARIANTSLARGE
     ];
 
     private $variations_resources  = [
