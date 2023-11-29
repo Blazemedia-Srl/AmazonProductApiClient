@@ -42,7 +42,7 @@ class ProductApiClient {
      * @param $configJsonFile Configuration
      * @param $timeSleep is a ratelimit in Milliseconds 
      */
-    public function __construct( string $configJsonFile, int $timeSleep = null ) {
+    public function __construct( string $configJsonFile, ?int $timeSleep = null ) {
 
         $this->settings = $this->getSettingsFromFile( $configJsonFile );
 
