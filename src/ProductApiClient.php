@@ -22,6 +22,7 @@ class ProductApiClient {
     private DefaultApi $client;
     
     private $settings;
+    private $rateLimit;
 
     private $resources = [
         GetItemsResource::ITEM_INFOTITLE,
@@ -37,13 +38,18 @@ class ProductApiClient {
     ];
 
 
-    
-    public function __construct( string $configJsonFile ) {
+    /**
+     * @param $configJsonFile Configuration
+     * @param $timeSleep is a ratelimit in Milliseconds 
+     */
+    public function __construct( string $configJsonFile, int $timeSleep = null ) {
 
         $this->settings = $this->getSettingsFromFile( $configJsonFile );
 
+        $this->rateLimit = $timeSleep;
+
         $this->client = new DefaultApi(
-                            new Client([ 'verify' => false, ]), // Guzzle client that Disable ssl validation entirely
+                            new Client([ 'verify' => false,]), // Guzzle client that Disable ssl validation entirely
                             $this->getConfiguration( $configJsonFile )
                         ); 
     }
@@ -72,6 +78,10 @@ class ProductApiClient {
      * @return array
      */
     private function searchItemsResponseData( $getItemsResponse ) : array {
+
+        if($this->rateLimit){
+            usleep($this->rateLimit * 1000);
+        }
 
         if( empty( $getItemsResponse) ) return [];
         if( $getItemsResponse->getSearchResult() == null ) return [];
