@@ -28,7 +28,8 @@ class ProductApiClient {
         GetItemsResource::ITEM_INFOTITLE,
         GetItemsResource::OFFERSLISTINGSPRICE,            
         GetItemsResource::PARENT_ASIN,
-        GetItemsResource::IMAGESPRIMARYLARGE,        
+        GetItemsResource::IMAGESPRIMARYLARGE,   
+        GetItemsResource::OFFERSLISTINGSPROGRAM_ELIGIBILITYIS_PRIME_EXCLUSIVE     
         //GetItemsResource::IMAGESVARIANTSLARGE
     ];
 
@@ -100,7 +101,6 @@ class ProductApiClient {
     public function getItem( string $ASIN ) : AmazonItem|null  {
 
         $items = $this->getItemsResponseData( $this->getItemResponse( $ASIN ) );
-
         return empty( $items ) ? null : new AmazonItem( 
                                             array_shift( $items ),
                                             $this->settings->partnerTag,
