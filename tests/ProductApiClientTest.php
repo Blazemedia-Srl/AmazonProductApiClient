@@ -27,34 +27,10 @@ final class ProductApiClientTest extends TestCase {
         $this->assertTrue( true );
     }
 
-    
-    public function _test_search_items_by_keywords() {
-
-        $query    = 'iphone 14';
-        $minPrice = 20;
-        $result   = '';
-
-        try{ 
-            
-            $result = $this->client->searchItems( $query );
-        
-        } catch( Exception $e ){
-
-            var_dump( $e->getMessage() );
-        }
-
-
-        //var_dump(  $result  );
-        //var_dump( array_map( fn( $item ) => [ 'id' => $item->itemId, $item->title => "{$item->price->value} {$item->price->currency}"] , $result->itemSummaries ) );
-
-        $this->assertIsObject( $result );
-    }
-
-
-    
+    /** @test */    
     public function test_get_item_by_asin() {
 
-        $asin     =   'B0B8JTS9XR'; //'B0C7BV3CYD'; // 
+        $asin     =   'B0D5YSDDZV'; //'B0C7BV3CYD'; // 
         $result = '';
 
         try{ 

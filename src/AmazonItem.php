@@ -26,6 +26,7 @@ class AmazonItem {
     
     
     function __construct( $item, $partnerTag = 'blazemedia-21', $trackingPlaceholder = 'booBLZTRKood' ) {    
+        
         $this->item = $item;
         $this->partnerTag          = $partnerTag;
         $this->trackingPlaceholder = $trackingPlaceholder;
@@ -142,10 +143,13 @@ class AmazonItem {
 
             foreach( $this->item->getOffers()->getListings() as $listing ){
                 if( $listing->getProgramEligibility()->getIsPrimeExclusive() ){
+                    $price = $listing->getPrice()->getAmount();
+                    $saving = $listing->getPrice()?->getSavings()?->getAmount() ?? ((($this->getFullPrice() - $price) / $this->getFullPrice()) * 100);
+
                     $prices = [
-                        'price'     => $listing->getPrice()->getAmount(),
-                        'saving'    => $listing->getPrice()->getSavings()->getAmount(),
-                        'fullprice' => $listing->getPrice()->getAmount() + $listing->getPrice()->getSavings()->getAmount(),
+                        'price'     => $price,
+                        'saving'    => $saving,
+                        'fullprice' => $this->getFullPrice(),
                     ];
                 }
             }
