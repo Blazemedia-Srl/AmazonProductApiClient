@@ -138,7 +138,7 @@ class ProductApiClient {
      * @param string $ASIN
      * @return GetItemsResponse
      */
-    private function getItemResponse( string $ASIN ) : GetItemsResponse {
+    private function getItemResponse( string $ASIN ) : ?GetItemsResponse {
 
         $getItemsRequest = new GetItemsRequest();
 
